@@ -63,8 +63,8 @@ modules-left = bspwm
 modules-center = spotify spotify-prev spotify-play-pause spotify-next
 modules-right = network-ethernet network-wlan xkeyboard battery-internal battery-external pulseaudio backlight date separator bluetooth power-menu
 
-tray-position = right
-tray-padding = 2
+;tray-position = right
+;tray-padding = 2
 ;tray-background = #0063ff
 
 wm-restack = bspwm
