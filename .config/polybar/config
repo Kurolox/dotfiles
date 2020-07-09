@@ -660,13 +660,14 @@ expand-right = true
 menu-0-0 ="|"
 menu-0-0-exec =
 menu-0-1 ="%{F#ff217c}%{F-}"
-menu-0-1-exec =
+menu-0-1-exec = systemctl suspend 
 menu-0-2 = "%{F#ff217c}%{F-}"
 menu-0-2-exec = reboot
 menu-0-3 = "%{F#ff217c}%{F-}"
 menu-0-3-exec = shutdown now
 menu-0-4 = "%{F#ff217c}%{F-}"
-menu-0-4-exec = 
+menu-0-4-exec = loginctl lock-session 
+
 
 
 ; Available tags:

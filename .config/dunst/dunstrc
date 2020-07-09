@@ -411,4 +411,7 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 #
+[telegram]
+    appname = Telegram Desktop
+    urgency = low
 # vim: ft=cfg

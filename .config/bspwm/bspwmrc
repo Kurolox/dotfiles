@@ -3,8 +3,9 @@ picom --experimental-backends & # Compositor
 ~/.config/polybar/launch.sh & # Status bar
 xsetroot -cursor_name left_ptr & # X cursor fix
 dunst & # Notifications
-feh --bg-fill --randomize ~/Pictures/Wallpapers & # Wallpaper
+feh --bg-fill ~/Pictures/Wallpapers/space-neon.jpg & # Wallpaper
 sxhkd & # Keyboard shortcuts
+xss-lock -- betterlockscreen -l -t "SGVsbG8sIGN1cmlvdXMgb25l" & # Lockscreen handler
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
