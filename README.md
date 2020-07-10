@@ -4,6 +4,7 @@
 ![Screenshot showing polybar, the wallpaper and termite](images/screenshot-1.png)
 ![Screenshot showing custom spotify theme and termite](images/screenshot-2.png)
 ![Screenshot showing firefox, termite and the GTK theme](images/screenshot-3.png)
+![Screenshot showing vscode and rofi](images/screenshot-4.png)
 
 ## Description
 Here is a collection of my personal dotfiles, which include:
