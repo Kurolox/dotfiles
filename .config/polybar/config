@@ -27,8 +27,8 @@ primary = ${xrdb:color9}
 secondary = #0000ff
 alert = #ffff00
 
-[bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+[bar/eDP1]
+monitor = eDP1
 width = 100%
 height = 31
 ;offset-x = 1%
@@ -83,24 +83,33 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
+[bar/HDMI2]
+inherit = bar/DP1
+monitor = HDMI2
+
+[bar/DP1]
+inherit = bar/eDP1
+monitor = DP1
+
+
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
+label-focused = %name%
 ;label-focused-background = ${colors.background-alt}
 label-focused-foreground = ${colors.primary}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-foreground = ${colors.primary}
 label-occupied-padding = 1
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.primary}
 label-urgent-padding = 1
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
@@ -602,7 +611,7 @@ ramp-volume-1 =%{F#ff217c}%{F-}
 ramp-volume-2 =%{F#ff217c}%{F-} 
 
 ; Right and Middle click (unreleased)
-; click-right = pavucontrol &
+click-right = pavucontrol &
 ; click-middle = 
 
 [module/backlight]

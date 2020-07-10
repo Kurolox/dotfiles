@@ -7,8 +7,18 @@ feh --bg-fill ~/Pictures/Wallpapers/space-neon.jpg & # Wallpaper
 sxhkd & # Keyboard shortcuts
 xss-lock -- betterlockscreen -l -t "SGVsbG8sIGN1cmlvdXMgb25l" & # Lockscreen handler
 
-bspc monitor -d I II III IV V VI VII VIII IX X
 
+if [ "$(bspc query -M | wc -l)" -eq "3" ]; then
+          bspc monitor eDP1 -d 1 2 3 4
+          bspc monitor DP1 -d 5 6 7
+          bspc monitor HDMI2 -d 8 9 10
+        elif [ "$(bspc query -M | wc -l)" -eq "2" ]; then
+          bspc monitor eDP1 -d 1 2 3 4 5
+          bspc monitor $( bspc query -M --names | grep -v eDP1) -d 6 7 8 9 10
+        else
+          bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+        fi
+ 
 bspc config border_width         0
 bspc config window_gap           16
 
@@ -17,6 +27,9 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 # bspc config focus_follows_pointer true
 
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+
 # bspc config single_monocle	 true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
@@ -24,3 +37,13 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+# Autorandr workspace management
+bspc subscribe monitor | while read -r line; do
+  case $line in
+      monitor_add*|monitor_remove*)
+          killall bspc && sleep 1 && bspc wm -r
+  esac
+done &
+
+
