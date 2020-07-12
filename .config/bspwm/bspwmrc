@@ -1,4 +1,8 @@
 #! /bin/sh
+
+# Fix for autorandr profile switching at boot
+autorandr -c $(autorandr | grep "(detected)" | sed "s/ (detected)//")
+
 picom --experimental-backends & # Compositor
 ~/.config/polybar/launch.sh & # Status bar
 xsetroot -cursor_name left_ptr & # X cursor fix
